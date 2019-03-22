@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>PyMySQL
+    </title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+          <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center"></a>
+          </div>
+        </div>
+    </header>
+  
+    <main role="main">
+  
+        <section class="jumbotron text-center">
+          <div class="container">
+            <h1 class="jumbotron-heading">These are all my friends!</h1>
+          </div>
+        </section>
+  
+        <div class="album py-5 bg-light">
+          <div class="container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>First Name:</th>
+                        <th>Last Name:</th>
+                        <th>Occupation:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for friend in friends %}
+                <tr>
+                    <td>
+                        {{friend['first_name']}}
+                    </td>
+                    <td>
+                        {{friend['last_name']}}
+                    </td>
+                    <td>
+                        {{friend['occupation']}}
+                    </td>
+                </tr>
+                {%endfor%}
+                </tbody>
+            </table>
+
+            <h4 class="mb-3" id='info'>Add a friend</h4>
+            <form action='/create_friend' method='post'>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">First name:</label>
+                        <input type="text" class="form-control" name="first_name" placeholder="John">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Last name:</label>
+                        <input type="text" class="form-control" name="last_name" placeholder="Doe">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Occupation:<span class="text-muted"></span></label>
+                    <input type="text" class="form-control" name="occupation" placeholder="Developer">
+                </div>
+              
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Add</button>
+            </form>
+
+            
+          </div>
+        </div>
+  
+    </main>
+      
+</body>
+</html>

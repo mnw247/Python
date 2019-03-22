@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create New User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Add A New User</h1>
+    <form action="/users/create" method="post">
+      {% csrf_token %}
+      First Name: <input type="text" name="first_name" placeholder="first_name">
+      Last Name: <input type="text" name="last_name" placeholder="last_name">
+      Email: <input type="text" name="email" placeholder="email">
+      <input type="submit" name="Create" placeholder="submit">
+    </form>
+    <a href="/users/index">Go Back</a>
+
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </body>
+</html>

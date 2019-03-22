@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Great Number Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    </head>
+    <body class = "text-center">
+        <div class="cover-container d-flex w-200 h-200 p-3 mx-auto flex-column">
+            <h1 class="masthead-brand text-center">Welcome to the Great Number Game</h1>
+            <div class="justify-content-center row">
+                <p>I am thinking of a number between 1 and 100</p>
+            </div>
+            <div class="justify-content-center row">
+                <p>Take a guess!</p>
+            </div>
+
+            <div class="justify-content-center row border:solid background-color:red">
+                <form action="/guess" method="post">
+                    <input type="text" name="num_guess">
+                    <div class="justify-content-center row">
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </div>
+                </form>
+                {% with wrong = get_flashed_messages(category_filter=["wrong"]) %}
+                {% if wrong %}
+                <p id="errormessages">{{ wrong }}</p>
+                {% endif %}
+                {% endwith %}
+    
+                {% with toohigh = get_flashed_messages(category_filter=["toohigh"]) %}
+                {% if toohigh %}
+                <p id="toohigh">{{ toohigh }}</p>
+                {% endif %}
+                {% endwith %}
+    
+                {% with toolow = get_flashed_messages(category_filter=["toolow"]) %}
+                {% if toolow %}
+                <p id="toolow">{{ toolow }}</p>
+                {% endif %}
+                {% endwith %}
+    
+    
+                {% with right = get_flashed_messages(category_filter=["right"]) %}
+                {% if right %}
+                <p id="rightmessages">{{ right }}</p>
+            
+                <form action='/reset' method='post'>
+                <input type='submit' class="button" name='reset' value='Reset'>
+                </form>
+
+                {% endif %}
+                {% endwith %}
+            </div>
+        </body>
+</html>
+

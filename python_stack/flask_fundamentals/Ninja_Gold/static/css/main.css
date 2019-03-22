@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0pz;
+}
+body{
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+}
+
+h3{
+    color: rgb(255,190,59);
+    text-align: center;
+}
+
+.activities{
+    color: rgb(255,190,59);
+}
+
+.red{
+    color: red;
+}
+
+img{
+    width: 250px;
+    height: 190px;
+}

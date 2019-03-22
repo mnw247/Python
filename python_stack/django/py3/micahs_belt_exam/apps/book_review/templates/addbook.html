@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Book and Review</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" crossorigin="anonymous">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+    <header>
+        <a href="/">Home</a>
+        <a href="/logout">Logout</a>
+    </header>
+    <body>
+        <h1>Add a New Book Title and a Review</h1>
+        <div class = "container-fluid" border-style: solid border-width: 5px border-color:red>
+            <form action='/register' method='POST'>
+                {% csrf_token %}
+                <label for="exampleInputFirstName">Book Title:</label> 
+                <input type="text" class="form-control" id="book_title" aria-describedby="name Help" placeholder="Enter Book Title" name="book_title">
+        </div>
+        <div>
+            <label for="exampleInputLastName">Author:</label>
+            <p>Choose from the list:</p>
+            <select>
+            {% for author in authors%}
+            <option>{{author}}</option>
+            {%endfor%}
+            </select>
+            <p>or add a new author:</p>
+            <input type="text" class="form-control" id="author" aria-describedby="nameHelp" placeholder="Enter author" name="Author">
+        </div>
+        <div>
+            <label for="Review:">Review:</label>
+            <textarea class="form-control" rows="4" cols="50" name="comment" form="usrform" placeholder="Enter review here..."></textarea>
+        </div>
+        <p>Ratings:</p>
+        <select>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <p>stars</p>
+        <button type="submit" class="btn btn-primary" name="Add Book and Review">Add Book and Review</button>
+        </div>
+
+    </form>
+
+    </body>
+</html>

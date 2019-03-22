@@ -1,0 +1,32 @@
+1) pip install Django==1.11.9 = (installs Django, which is a Python Web framework, the current Django version i installed 1.11 will be compatible with Python version 2.7, 3.4, 3.5)
+
+
+2) pip list (this lists all the List installed packages, including editables. Packages are listed in a case-insensitive sorted order.)
+
+
+3) deactivate (This will deactivate your virtual environment)
+
+
+4) pip3 list (Django is no longer on the list)
+
+
+5) source py3Env/bin/activate (reactivated my python 3.6 environment)
+
+
+6) pip install Django==1.11.9 (reactivated Django, Requirement already satisfied)
+
+
+7) pip freeze (What's the difference between freeze and list? **It looks like it freezes only the pips that were installed post python installation that is not native to python)
+
+
+8) First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. (What do you see when you ls? What's inside this file?  **I see all my files on my dekstop listed.  Inside the requirements file is the two versions of pip that installed Django==1.11.9
+pytz==2018.4)
+
+
+9) pip uninstall Django (uninstall Django on my machine)
+
+
+10) pip show Django (Nothing is shown becausue Django is uninstalled)
+
+
+11) pip search Flask This one might take a moment to execute. (Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions.  When i typed in the command it populated a list of Flask commands)

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Playground</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+            crossorigin="anonymous">
+    </head>
+
+    <style>
+        body{
+            text-align: center;
+            background-color: maroon;
+        }
+        h1{
+            color: aliceblue;
+        }
+        p{
+            color:aqua;
+        }
+        .color1{
+            background-color: rgb(33, 174, 165);
+            height: 50px;
+            width: 50px;
+        }
+        .color2{
+            background-color: rgb(205, 199, 35);
+            height: 50px;
+            width: 50px;
+        }
+    </style>
+
+    <body>
+        <h1>Checkerboard!</h1>
+        <p>{{x}} X {{y}}</p>
+        <table class = container>
+        {% for i in range (x):%}
+            <tr>
+                {% for j in range (y):%} 
+                <td class = 'color{{(i+j)%2+1}}'></td>
+                {%endfor%}
+            </tr>
+        {%endfor%}
+        </table>
+    </body>
+
+</html>

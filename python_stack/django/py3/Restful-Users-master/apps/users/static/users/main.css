@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    padding: 0pz;
+}
+body{
+    color: rgb(255, 255, 255);
+    background-color: rgb(123, 233, 252);
+    text-align: center;
+
+#scroll{
+    overflow: scroll;
+    color: rgb(255,190,59);
+    width: 100%;
+    height: 240px;
+}
+
+img{
+    width: 250px;
+    height: 190px;
+}

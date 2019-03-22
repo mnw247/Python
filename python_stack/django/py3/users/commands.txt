@@ -1,0 +1,17 @@
+from apps.user_login.models import User
+Micah = User.objects.create(first_name='Micah',last_name='Wu', email="micah.wu@yahoo.fr", age=21)
+Michael = User.objects.create(first_name='Michael',last_name='Jackson', email="m.jackson@yahoo.com",age =24)
+David  = User.objects.create(first_name='David',last_name='James', email="david.james@aol.com", age=24)
+
+Michael.email = "michael.jackson@galaxy.com"
+Michael.save()
+
+David  = User.objects.create(first_name='David',last_name='James', email="david.james@aol.com", age=24)
+David.delete()
+
+User.objects.first()
+User.objects.last()
+User.objects.all()
+
+User.objects.order_by('first_name').values('first_name') #in alphabetical order from a-z (first_name)
+User.objects.order_by('-first_name').values('first_name') #in alphabetical order from z-a (first_name)

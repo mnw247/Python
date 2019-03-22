@@ -1,0 +1,12 @@
+Display all users who like the first book
+    Book.objects.get(id=1).like_by.values("first_name")
+
+Display the user who uploaded the first book
+    Book.objects.get(id=1).updated_by.first_name
+    Book.objects.get(id=1).updated_by.last_name
+
+Display all users who like the second book
+    Book.objects.get(id=2).like_by.all()
+
+Display the user who uploaded the second book
+    Book.objects.get(id=2).uploaded_by

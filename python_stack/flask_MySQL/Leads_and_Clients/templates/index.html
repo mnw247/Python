@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <title>Leads and Clients</title>
+    <script>
+        window.onload = function () {
+            var options = {
+                title: {
+                    text: "Customer Market Share in 2018"
+                },
+                subtitles: [{
+                    text: "As of July 2018"
+                }],
+                animationEnabled: true,
+                data: [{
+                    type: "pie",
+                    startAngle: 40,
+                    toolTipContent: "<b>{label}</b>: {y}%",
+                    showInLegend: "true",
+                    legendText: "{label}",
+                    indexLabelFontSize: 16,
+                    indexLabel: "{label} - {y}%",
+                    dataPoints:[
+                        {% for i in customers %}
+                        { y: {{i['number_of_leads']}}, label: "{{i['customer_name']}}" },
+                        {% endfor %}
+                    ]
+                }]
+            };
+            $("#chartContainer").CanvasJSChart(options);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-dark bg-dark box-shadow">
+          <div class="container d-flex justify-content-between">
+            <a href="#" class="navbar-brand d-flex align-items-center"></a>
+          </div>
+        </div>
+    </header>
+
+    <div class="jumbotron text-center">
+        <h1>Report Dashboard</h1>
+    </div>
+  
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+        <div class="form-group row">
+            <label class="col-lg-4 col-form-label">Date</label>
+            <div class="col-10">
+                <input class="form-control" type="date" value="2011-08-19">
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Customer Name:</th>
+                    <th>Name of Leads:</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for customer in customers %}
+            <tr>
+                <td>
+                    {{customer['customer_name']}}
+                </td>
+                <td>
+                    {{customer['number_of_leads']}}
+                </td>
+
+            </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+        </div>
+    </div>
+
+</body>
+</html>

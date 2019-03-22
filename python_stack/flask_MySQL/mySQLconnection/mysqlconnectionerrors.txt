@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "server.py", line 3, in <module>
+    from mysqlconnection import connectToMySQL
+  File "/Users/micahwu/Desktop/flask_mySQL/mysqlconnection.py", line 12
+                                        autocommit = True)
+
+#copy and pasted code from website, (spacing/tab issues)
+
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'movie' ([Errno 8] nodename nor servname provided, or not known)")
+
+#changed host name in line 6
+
+
+Traceback (most recent call last):
+  File "server.py", line 7, in <module>
+    mysql = connectToMySQL('mydb')
+  File "/Users/micahwu/Desktop/flask_mySQL/mysqlconnection.py", line 40, in connectToMySQL
+    return MySQLConnection(db)
+  File "/Users/micahwu/Desktop/flask_mySQL/mysqlconnection.py", line 12, in __init__
+    autocommit = True)
+  File "/Users/micahwu/Desktop/Coding Dojo/Python/python_stack/myEnvironments/py3Env/lib/python3.6/site-packages/pymysql/__init__.py", line 90, in Connect
+    return Connection(*args, **kwargs)
+  File "/Users/micahwu/Desktop/Coding Dojo/Python/python_stack/myEnvironments/py3Env/lib/python3.6/site-packages/pymysql/connections.py", line 704, in __init__
+    self.connect()
+  File "/Users/micahwu/Desktop/Coding Dojo/Python/python_stack/myEnvironments/py3Env/lib/python3.6/site-packages/pymysql/connections.py", line 974, in connect
+    self._request_authentication()
+  File "/Users/micahwu/Desktop/Coding Dojo/Python/python_stack/myEnvironments/py3Env/lib/python3.6/site-packages/pymysql/connections.py", line 1203, in _request_authentication
+    auth_packet = self._read_packet()
+  File "/Users/micahwu/Desktop/Coding Dojo/Python/python_stack/myEnvironments/py3Env/lib/python3.6/site-packages/pymysql/connections.py", line 1059, in _read_packet
+    packet.check_error()
+  File "/Users/micahwu/Desktop/Coding Dojo/Python/python_stack/myEnvironments/py3Env/lib/python3.6/site-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/Users/micahwu/Desktop/Coding Dojo/Python/python_stack/myEnvironments/py3Env/lib/python3.6/site-packages/pymysql/err.py", line 109, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1045, "Access denied for user 'user'@'localhost' (using password: YES)")
+
+#changed user in line 7 to user instead of leaving it as root
+
+
+
+File "server.py", line 7, in <module>
+mysql = connectToMySQL('mydb')
+File "/Users/micahwu/Desktop/flask_mySQL/mysqlconnection.py", line 40, in connectToMySQL
+return MySQLConnection(db)
+File "/Users/micahwu/Desktop/flask_mySQL/mysqlconnection.py", line 9, in __init__
+db = abcd,
+NameError: name 'abcd' is not defined
+
+#changed db = unknown name, should be db = db
+

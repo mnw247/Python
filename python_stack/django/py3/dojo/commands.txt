@@ -1,0 +1,29 @@
+python manage.py shell
+from apps.dojo_ninjas.models import *
+first_dojo = Dojo.objects.create(name="CodingDojo Silicon Valley", city="Mountain View", state="CA")
+second_dojo = Dojo.objects.create(name="CodingDojo Seattle", city="Seattle", state="WA")
+third_dojo = Dojo.objects.create(name="CodingDojo New York", city="New York", state="NY")
+
+Dojo.objects.all().delete() #Deleted all 3 Dojo objects
+
+first_dojo = Dojo.objects.create(name="CodingDojo Silicon Valley", city="Mountain View", state="CA")
+second_dojo = Dojo.objects.create(name="CodingDojo Seattle", city="Seattle", state="WA")
+third_dojo = Dojo.objects.create(name="CodingDojo New York", city="New York", state="NY")
+
+first_ninja = Ninja.objects.create(first_name="Micah",last_name="Wu",state="CA",dojo_name=Dojo.objects.first())
+first_ninja1 = Ninja.objects.create(first_name="Izamaki",last_name="Naruto",state="CA",dojo_name=Dojo.objects.first())
+first_ninja2 = Ninja.objects.create(first_name="Taylor",last_name="Fry",state="CA",dojo_name=Dojo.objects.first())
+
+second_ninja = Ninja.objects.create(first_name="Michael",last_name="Jordan",state="WA",dojo_name=Dojo.objects.get(id=6))
+second_ninja1 = Ninja.objects.create(first_name="Kobe",last_name="Bryant",state="WA",dojo_name=Dojo.objects.get(id=6))
+second_ninja2 = Ninja.objects.create(first_name="Lebron",last_name="James",state="WA",dojo_name=Dojo.objects.get(id=6))
+
+third_ninja = Ninja.objects.create(first_name="Dak",last_name="Prescott",state="NY",dojo_name=Dojo.objects.get(id=7))
+third_ninja1 = Ninja.objects.create(first_name="Zeke",last_name="Elliot",state="NY",dojo_name=Dojo.objects.get(id=7))
+third_ninja2 = Ninja.objects.create(first_name="Dez",last_name="Bryant",state="NY",dojo_name=Dojo.objects.get(id=7))
+
+Dojo.objects.first().ninjas.all()
+Ninja.objects.first()
+Ninja.objects.first().dojo_name
+Dojo.objects.last().ninjas.all()
+Dojo.objects.last().ninjas.values("dojo_name_id")
